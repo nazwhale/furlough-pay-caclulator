@@ -6,8 +6,8 @@ const calculationOutputElement = document.getElementById("cacluation-output");
 input.addEventListener("change", updateValue);
 
 function updateValue(e) {
-  const calculated = calculateFurloughPay(e.target.value);
-  calculationOutputElement.textContent = `£${calculated}`;
+  const calculated = calculateFurloughPay(e.target.value).toFixed();
+  calculationOutputElement.textContent = `£${calculated} per month`;
 }
 
 function calculateFurloughPay(salary) {
@@ -17,5 +17,5 @@ function calculateFurloughPay(salary) {
     return maxMonthlySalary;
   }
 
-  return salary * 0.8;
+  return monthlySalary * 0.8;
 }

@@ -42,16 +42,30 @@ input[type="number"] {
 .salary-input {
   border: none;
   background-color: inherit;
+  padding: 5px;
+  padding-left: 20px;
+  border: 2px solid black;
+  box-shadow: none;
 }
 
-.salary-label:focus-within {
+.salary-input:focus {
   border: 2px solid rebeccapurple;
 }
 
+.touched:required:invalid {
+  border: 2px solid red;
+}
+
 .salary-label {
-  border: 2px solid black;
+  position: relative;
+}
+
+.salary-label:before {
+  content: "£";
+  position: absolute;
   font-weight: bold;
-  padding: 5px;
+  left: 5px;
+  top: 0;
 }
 
 .salary-text {

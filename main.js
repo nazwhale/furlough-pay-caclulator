@@ -5,6 +5,11 @@ const calculationOutputElement = document.getElementById("calculation-output");
 
 input.addEventListener("change", updateValue);
 input.addEventListener("blur", updateValue);
+input.addEventListener("keydown", registerTouched);
+
+function registerTouched() {
+  input.classList.add("touched");
+}
 
 function updateValue(e) {
   const calculated = calculateFurloughPay(e.target.value).toFixed();

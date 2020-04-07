@@ -1,20 +1,22 @@
 const maxMonthlySalary = 2500;
 
 const input = document.getElementById("yearly-salary");
-const calculationOutputElement = document.getElementById("cacluation-output");
+const calculationOutputElement = document.getElementById("calculation-output");
 
 input.addEventListener("change", updateValue);
 
 function updateValue(e) {
   const calculated = calculateFurloughPay(e.target.value).toFixed();
 
-  let output = `£${calculated} per month`
+  let output = `${calculated} per month`;
 
   // If we've hit £2500 give the user confirmation
   if (calculated === maxMonthlySalary.toFixed()) {
-    output = `${output} (max monthly amount)`
+    output = `${output} (max monthly amount)`;
   }
-  
+
+  calculationOutputElement.classList.remove("disclaimer");
+  calculationOutputElement.classList.add("bold");
   calculationOutputElement.textContent = output;
 }
 

@@ -1,11 +1,29 @@
-body {
-  background-color: whitesmoke;  
+:root {
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-label {
-  display: block;
+body {
+  background-color: whitesmoke;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 2rem 6rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .amounts {
@@ -13,6 +31,28 @@ label {
   border: none;
 }
 
-.flex-contanter {
-  display: flex
+.flex-container {
+  display: flex;
+}
+
+.content {
+  width: 60%;
+}
+
+.salary-input {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.salary-label {
+  display: block;
+  margin: 1rem 0;
+}
+
+.calculation-output {
+  margin-left: 0.2rem;
+}
+
+.disclaimer {
+  color: grey;
 }

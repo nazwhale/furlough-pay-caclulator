@@ -8,34 +8,35 @@
 
   <body>
     <h1>Furlough Pay Calculator UK</h1>
-  
-    <div class=flex-container">
-        <label>My yearly salary is...</label>
-        <span>£<input
-          class="amounts"
+    <div class="content">
+      <div class=flex-container">
+        <p class="salary-label">Yearly salary</p>
+        <span>£</span>
+        <input
+          class="salary-input"
           name="yearly-salary"
           id="yearly-salary"
           type="number"
           step="1"
           min="0"
-          placeholder="enter salary"
           required
-        /></span>
-    </div>
-
-      <div class="flex-container">
-      <p>
-        <label>Monthly furlough pay</label>
-        <span id="cacluation-output" class="amounts">£??? per month</span>
-      </p>
+          ></input>
       </div>
-
-      <p>
-        ℹ️ This is an approximation based on government guidelines. You will have to subtract tax, pension contributions, student loan contributions etc
+      <div class="flex-container">
+        <p>
+          Your monthly furlough pay is <span><b>£</b></span><span id="calculation-output" class="amounts disclaimer"> no salary entered</span>
+        </p>
+      </div>
+      <p class="disclaimer">
+        this calculation is based on current <a href="https://www.gov.uk/guidance/check-if-you-could-be-covered-by-the-coronavirus-job-retention-scheme#how-much-youll-get">government guidelines</a>
       </p>
-    </form>
-
-    <a href="https://www.gov.uk/guidance/check-if-you-could-be-covered-by-the-coronavirus-job-retention-scheme#how-much-youll-get">gov.uk guidance</a>
+      <p class="disclaimer">
+        <i>
+          "You'll still have to pay Income tax, National Insurance contributions, Student loan repayments and any other deductions (such as pension
+          contributions) from your wage"
+        </i>
+      </p>
+    </div>
     <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>

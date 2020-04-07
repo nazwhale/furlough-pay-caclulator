@@ -40,12 +40,21 @@ input[type="number"] {
 }
 
 .salary-input {
-  border: 2px solid black;
-  padding: 5px;
+  border: none;
+  background-color: inherit;
+}
+
+.salary-label:focus-within {
+  border: 2px solid rebeccapurple;
 }
 
 .salary-label {
-  display: block;
+  border: 2px solid black;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.salary-text {
   margin: 1rem 0;
 }
 

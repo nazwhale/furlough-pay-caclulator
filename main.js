@@ -4,6 +4,7 @@ const input = document.getElementById("yearly-salary");
 const calculationOutputElement = document.getElementById("calculation-output");
 
 input.addEventListener("change", updateValue);
+input.addEventListener("blur", updateValue);
 
 function updateValue(e) {
   const calculated = calculateFurloughPay(e.target.value).toFixed();

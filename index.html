@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Furlough Pay Calculator</title>
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Furlough Pay Calculator</title>
-  <link rel="stylesheet" type="text/css" href="./main.css">
-  <script type="text/javascript" src="./main.js">
-  </script>
-</head>
+  <body>
+    <h1>Furlough Pay Calculator UK</h1>
+    <form onsubmit="return handleSubmit(salary.value)">
+      <label>
+        Salary:
+        <input
+          name="yearly-salary"
+          id="yearly-salary"
+          type="number"
+          step="1"
+          min="0"
+          placeholder="£ enter salary"
+          required
+        />
+      </label>
 
-<body>
-  <h1>Furlough Pay Calculator UK</h1>
-  <form onsubmit="return handleSubmit(salary.value)">
-    <label>
-      Salary:
-      <input name="salary" type="number" step="0.01" placeholder="£ enter salary">
-    </label>
-    <button>Submit</button>
-  </form>
-</body>
+      <p>
+        <span id="cacluation-output">(moneys)</moneys></span>
+      </p>
+
+    </form>
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
 </html>

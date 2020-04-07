@@ -1,18 +1,21 @@
-const maxMonthlySalary = 2500
+const maxMonthlySalary = 2500;
 
-function handleSubmit(salary) {
-    const value = calculateFurloughPay(salary)
-    alert(value)
-    return false
+const input = document.getElementById("yearly-salary");
+const calculationOutputElement = document.getElementById("cacluation-output");
+
+input.addEventListener("change", updateValue);
+
+function updateValue(e) {
+  const calculated = calculateFurloughPay(e.target.value);
+  calculationOutputElement.textContent = `£${calculated}`;
 }
 
 function calculateFurloughPay(salary) {
-    const monthlySalary = salary / 12
+  const monthlySalary = salary / 12;
 
-    if (monthlySalary >= maxMonthlySalary) {
-        return maxMonthlySalary
-    }
+  if (monthlySalary >= maxMonthlySalary) {
+    return maxMonthlySalary;
+  }
 
-    // calculate 80% of salary
-    return salary * 0.8
+  return salary * 0.8;
 }

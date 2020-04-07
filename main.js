@@ -7,7 +7,15 @@ input.addEventListener("change", updateValue);
 
 function updateValue(e) {
   const calculated = calculateFurloughPay(e.target.value).toFixed();
-  calculationOutputElement.textContent = `£${calculated} per month`;
+
+  let output = `£${calculated} per month`
+
+  // If we've hit £2500 give the user confirmation
+  if (calculated === maxMonthlySalary.toFixed()) {
+    output = `${output} (max monthly amount)`
+  }
+  
+  calculationOutputElement.textContent = output;
 }
 
 function calculateFurloughPay(salary) {

@@ -8,24 +8,34 @@
 
   <body>
     <h1>Furlough Pay Calculator UK</h1>
-    <form onsubmit="return handleSubmit(salary.value)">
-      <label>
-        Yearly Salary
-        <input
+  
+    <div class=flex-container">
+        <label>My yearly salary is...</label>
+        <span>£<input
+          class="amounts"
           name="yearly-salary"
           id="yearly-salary"
           type="number"
           step="1"
           min="0"
-          placeholder="£ enter salary"
+          placeholder="enter salary"
           required
-        />
-      </label>
+        /></span>
+    </div>
+
+      <div class="flex-container">
+      <p>
+        <label>Monthly furlough pay</label>
+        <span id="cacluation-output" class="amounts">£??? per month</span>
+      </p>
+      </div>
 
       <p>
-        <span id="cacluation-output">£??? per month</span>
+        ℹ️ This is an approximation based on government guidelines. You will have to subtract tax, pension contributions, student loan contributions etc
       </p>
     </form>
+
+    <a href="https://www.gov.uk/guidance/check-if-you-could-be-covered-by-the-coronavirus-job-retention-scheme#how-much-youll-get">gov.uk guidance</a>
     <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>

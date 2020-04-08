@@ -57,6 +57,23 @@ input[type="number"] {
   border: 2px solid red;
 }
 
+.information-box {
+  display: flex;
+  background-color: #d9edf9;
+  padding: 1rem;
+  border: 2px solid #57c3ff;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.information-heading {
+  margin: 0;
+}
+
+.information-content {
+  margin-left: 1rem;
+}
+
 .salary-label {
   position: relative;
 }

@@ -37,6 +37,7 @@ input[type="number"] {
 
 .content {
   max-width: 600px;
+  width: 40%;
 }
 
 .salary-input {
@@ -64,7 +65,6 @@ input[type="number"] {
   padding: 1rem;
   border: 2px solid #57c3ff;
   border-radius: 5px;
-  width: 60%;
 }
 
 .information-heading {

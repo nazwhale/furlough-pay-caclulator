@@ -7,7 +7,6 @@ body {
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  padding: 2rem 4rem;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -20,6 +19,17 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* Target desktop only */
+@media (min-width: 801px) {
+  body {
+    padding: 2rem 4rem;
+  }
+
+  .content {
+    width: 40%;
+  }
 }
 
 .bold {
@@ -40,6 +50,7 @@ input[type="number"] {
 }
 
 .salary-input {
+  font-weight: bold;
   background-color: inherit;
   padding: 5px;
   padding-left: 20px;
@@ -55,6 +66,22 @@ input[type="number"] {
 
 .touched:required:invalid {
   border: 2px solid red;
+}
+
+.information-box {
+  display: flex;
+  background-color: #d9edf9;
+  padding: 1rem;
+  border: 2px solid #57c3ff;
+  border-radius: 5px;
+}
+
+.information-heading {
+  margin: 0;
+}
+
+.information-content {
+  margin-left: 1rem;
 }
 
 .salary-label {
@@ -74,7 +101,7 @@ input[type="number"] {
   margin-bottom: 0.5rem;
 }
 
-#calculation-output {
+.furlough-pay {
   margin-left: 0.1rem;
 }
 
@@ -88,6 +115,11 @@ hr {
 
 .feedback-text {
   color: grey;
+  margin-top: 0.2rem;
+}
+
+.more-help-title {
+  margin-bottom: 0.4rem;
 }
 
 .submit-button {

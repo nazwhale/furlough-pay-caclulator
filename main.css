@@ -46,6 +46,8 @@ input[type="number"] {
   padding-left: 20px;
   border: 2px solid black;
   box-shadow: none;
+  font-size: 16px;
+  letter-spacing: 0.08rem;
 }
 
 .salary-input:focus {
@@ -64,16 +66,17 @@ input[type="number"] {
   content: "£";
   position: absolute;
   font-weight: bold;
-  left: 5px;
+  left: 8px;
   top: 0;
 }
 
 .salary-text {
   margin: 1rem 0;
+  margin-bottom: 0.5rem;
 }
 
-.calculation-output {
-  margin-left: 0.2rem;
+#calculation-output {
+  margin-left: 0.1rem;
 }
 
 .disclaimer {

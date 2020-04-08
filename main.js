@@ -28,10 +28,8 @@ function updateValue(e) {
 
 function calculateFurloughPay(salary) {
   const monthlySalary = salary / 12;
+  const percentageSalary = monthlySalary * 0.8;
+  const hasHitMonthlyMax = percentageSalary >= maxMonthlySalary;
 
-  if (monthlySalary >= maxMonthlySalary) {
-    return maxMonthlySalary;
-  }
-
-  return monthlySalary * 0.8;
+  return hasHitMonthlyMax ? maxMonthlySalary : percentageSalary;
 }

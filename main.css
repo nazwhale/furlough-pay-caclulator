@@ -7,7 +7,6 @@ body {
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  padding: 2rem 4rem;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -20,6 +19,17 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* Target desktop only */
+@media (min-width: 801px) {
+  body {
+    padding: 2rem 4rem;
+  }
+
+  .content {
+    width: 40%;
+  }
 }
 
 .bold {
@@ -37,7 +47,6 @@ input[type="number"] {
 
 .content {
   max-width: 600px;
-  width: 40%;
 }
 
 .salary-input {

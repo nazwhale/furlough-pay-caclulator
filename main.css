@@ -1,11 +1,29 @@
-body {
-  background-color: whitesmoke;  
+:root {
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-label {
-  display: block;
+body {
+  background-color: whitesmoke;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 2rem 6rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .amounts {
@@ -13,6 +31,54 @@ label {
   border: none;
 }
 
-.flex-contanter {
-  display: flex
+.flex-container {
+  display: flex;
+}
+
+.content {
+  width: 60%;
+}
+
+.salary-input {
+  border: none;
+  background-color: inherit;
+  padding: 5px;
+  padding-left: 20px;
+  border: 2px solid black;
+  box-shadow: none;
+  font-size: 16px;
+  letter-spacing: 0.08rem;
+}
+
+.salary-input:focus {
+  border: 2px solid rebeccapurple;
+}
+
+.touched:required:invalid {
+  border: 2px solid red;
+}
+
+.salary-label {
+  position: relative;
+}
+
+.salary-label:before {
+  content: "£";
+  position: absolute;
+  font-weight: bold;
+  left: 8px;
+  top: 0;
+}
+
+.salary-text {
+  margin: 1rem 0;
+  margin-bottom: 0.5rem;
+}
+
+#calculation-output {
+  margin-left: 0.1rem;
+}
+
+.disclaimer {
+  color: grey;
 }

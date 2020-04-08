@@ -40,7 +40,6 @@ input[type="number"] {
 }
 
 .salary-input {
-  border: none;
   background-color: inherit;
   padding: 5px;
   padding-left: 20px;
@@ -81,4 +80,13 @@ input[type="number"] {
 
 .disclaimer {
   color: grey;
+}
+
+.submit-button {
+  border: 2px solid black;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  background-color: #00e2ac;
 }

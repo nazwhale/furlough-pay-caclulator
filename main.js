@@ -33,3 +33,5 @@ function calculateFurloughPay(salary) {
 
   return hasHitMonthlyMax ? maxMonthlySalary : percentageSalary;
 }
+
+// write to form action body on textarea update?

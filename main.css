@@ -40,6 +40,7 @@ input[type="number"] {
 }
 
 .salary-input {
+  font-weight: bold;
   background-color: inherit;
   padding: 5px;
   padding-left: 20px;
@@ -91,7 +92,7 @@ input[type="number"] {
   margin-bottom: 0.5rem;
 }
 
-#calculation-output {
+.furlough-pay {
   margin-left: 0.1rem;
 }
 
@@ -105,6 +106,11 @@ hr {
 
 .feedback-text {
   color: grey;
+  margin-top: 0.2rem;
+}
+
+.more-help-title {
+  margin-bottom: 0.4rem;
 }
 
 .submit-button {

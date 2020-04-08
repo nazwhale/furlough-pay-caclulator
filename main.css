@@ -82,6 +82,14 @@ input[type="number"] {
   color: grey;
 }
 
+hr {
+  margin-top: 3rem;
+}
+
+.feedback-text {
+  color: grey;
+}
+
 .submit-button {
   border: 2px solid black;
   padding: 5px;

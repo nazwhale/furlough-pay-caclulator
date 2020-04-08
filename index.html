@@ -2,13 +2,18 @@
 <html>
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99096863-3"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-99096863-3"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'UA-99096863-3');
+      gtag("config", "UA-99096863-3");
     </script>
 
     <meta charset="UTF-8" />
@@ -19,38 +24,62 @@
   <body>
     <h1>Furlough Pay Calculator UK</h1>
     <div class="content">
-
-      <div class=flex-container">
-        <p class="salary-text">Yearly salary</p>
-        <label class="salary-label">
-          <input
-            class="salary-input"
-            name="yearly-salary"
-            id="yearly-salary"
-            type="number"
-            step="1"
-            min="0"
-            required
-            />
-        </label>
-      </div>
+      <p class="salary-text">Yearly salary</p>
+      <label class="salary-label">
+        <input
+          class="salary-input"
+          name="yearly-salary"
+          id="yearly-salary"
+          type="number"
+          step="1"
+          min="0"
+          required
+        />
+      </label>
 
       <div class="flex-container">
         <p>
-          Your monthly furlough pay is <span><b>£</b></span><span id="calculation-output" class="amounts disclaimer"> no salary entered</span>
+          Your monthly furlough pay is <span><b>£</b></span
+          ><span id="calculation-output" class="amounts disclaimer">
+            no salary entered</span
+          >
         </p>
       </div>
 
       <p class="disclaimer">
-        This calculation is based on current <a href="https://www.gov.uk/guidance/check-if-you-could-be-covered-by-the-coronavirus-job-retention-scheme#how-much-youll-get" target="_blank" rel=”noreferrer noopener”>government guidelines</a>
+        This calculation is based on current
+        <a
+          href="https://www.gov.uk/guidance/check-if-you-could-be-covered-by-the-coronavirus-job-retention-scheme#how-much-youll-get"
+          target="_blank"
+          rel="”noreferrer"
+          noopener”
+          >government guidelines</a
+        >.
       </p>
       <p class="disclaimer">
         <i>
-          "You'll still have to pay Income tax, National Insurance contributions, Student loan repayments and any other deductions (such as pension
-          contributions) from your wage"
+          "You'll still have to pay Income tax, National Insurance
+          contributions, Student loan repayments and any other deductions (such
+          as pension contributions) from your wage"
         </i>
       </p>
 
+      <hr />
+
+      <div>
+        <h3>Have an idea?</h3>
+        <p class="feedback-text">
+          We'd love to hear your feedback. You can
+          <a
+            href="mailto:furloughpaycalculator@gmail.com?subject=Feedback&body=Hi,%0D%0A"
+            method="post"
+            enctype="text/plain"
+            target="_blank"
+            rel="noopener noreferrer"
+            >email us here</a
+          >.
+        </p>
+      </div>
     </div>
     <script type="text/javascript" src="./main.js"></script>
   </body>

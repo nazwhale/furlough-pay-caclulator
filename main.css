@@ -4,9 +4,9 @@
 
 body {
   background-color: whitesmoke;
-  font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 1rem;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -56,7 +56,6 @@ input[type="number"] {
   padding-left: 20px;
   border: 2px solid black;
   box-shadow: none;
-  font-size: 16px;
   letter-spacing: 0.08rem;
 }
 

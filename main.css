@@ -57,7 +57,7 @@ h1 {
 }
 
 /* ew */
-#base-furlough-salary {
+#base-furlough-pay {
   margin-top: 1rem;
 }
 
@@ -70,7 +70,7 @@ h1 {
   max-width: 600px;
 }
 
-.salary-input {
+.pay-input {
   font-weight: bold;
   background-color: inherit;
   padding: 5px;
@@ -82,7 +82,7 @@ h1 {
   max-width: 35vw;
 }
 
-.salary-input:focus {
+.pay-input:focus {
   border: 2px solid rebeccapurple;
 }
 
@@ -90,11 +90,11 @@ h1 {
   border: 2px solid red;
 }
 
-.salary-label {
+.pay-label {
   position: relative;
 }
 
-.salary-label:before {
+.pay-label:before {
   content: "£";
   font-weight: bold;
   position: absolute;
@@ -102,7 +102,7 @@ h1 {
   top: 11px;
 }
 
-.salary-text {
+.pay-text {
   margin: 1rem 0;
   margin-bottom: 0.5rem;
   margin-right: 2rem;

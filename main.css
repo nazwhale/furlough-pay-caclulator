@@ -24,11 +24,13 @@ input[type="number"] {
 /* Target desktop only */
 @media (min-width: 801px) {
   body {
+    align-items: center;
     padding: 2rem 4rem;
   }
 
   .content {
-    width: 40%;
+    width: 60%;
+    margin: auto;
   }
 }
 
@@ -41,8 +43,27 @@ input[type="number"] {
   border: none;
 }
 
-.flex-container {
+h1 {
+  margin-bottom: 2rem;
+}
+
+/* .breakdown-container {
   display: flex;
+  margin-right: 20px;
+} */
+
+.breakdown-label-value-pair {
+  width: 100%;
+}
+
+/* ew */
+#base-furlough-salary {
+  margin-top: 1rem;
+}
+
+.flex-container_space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 .content {
@@ -53,11 +74,11 @@ input[type="number"] {
   font-weight: bold;
   background-color: inherit;
   padding: 5px;
-  padding-left: 20px;
   border: 2px solid black;
   box-shadow: none;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 0.08rem;
+  text-align: right;
 }
 
 .salary-input:focus {
@@ -68,7 +89,66 @@ input[type="number"] {
   border: 2px solid red;
 }
 
+.salary-label {
+  position: relative;
+}
+
+.salary-label:before {
+  content: "£";
+  font-weight: bold;
+  position: absolute;
+  left: 10px;
+  top: 8px;
+}
+
+.salary-text {
+  margin: 1rem 0;
+  margin-bottom: 0.5rem;
+  margin-right: 2rem;
+  white-space: nowrap;
+}
+
+.pound-small {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.money-small {
+  font-size: 20px;
+  margin-left: 0.05rem;
+  font-weight: bold;
+}
+
+.pound-big {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.money-big {
+  margin-left: 0.05rem;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+p {
+  margin: 0.7rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#calculation-output-before-tax-description {
+  padding-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.text-grey {
+  color: grey;
+}
+
+/* Disclaimer */
+
 .information-box {
+  margin-top: 2rem;
   display: flex;
   background-color: #d9edf9;
   padding: 1rem;
@@ -84,29 +164,8 @@ input[type="number"] {
   margin-left: 1rem;
 }
 
-.salary-label {
-  position: relative;
-}
-
-.salary-label:before {
-  content: "£";
-  position: absolute;
-  font-weight: bold;
-  left: 8px;
-  top: 0;
-}
-
-.salary-text {
-  margin: 1rem 0;
-  margin-bottom: 0.5rem;
-}
-
-.furlough-pay {
-  margin-left: 0.1rem;
-}
-
-.disclaimer {
-  color: grey;
+.more-help-title {
+  margin-bottom: 0.4rem;
 }
 
 hr {
@@ -116,17 +175,4 @@ hr {
 .feedback-text {
   color: grey;
   margin-top: 0.2rem;
-}
-
-.more-help-title {
-  margin-bottom: 0.4rem;
-}
-
-.submit-button {
-  border: 2px solid black;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 16px;
-  background-color: #00e2ac;
 }

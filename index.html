@@ -28,46 +28,77 @@
   </head>
 
   <body>
-    <h1>Furlough Pay Calculator UK</h1>
     <div class="content">
-      <p class="salary-text">Yearly salary</p>
-      <label class="salary-label">
-        <input
-          class="salary-input"
-          name="yearly-salary"
-          id="yearly-salary"
-          placeholder="27000"
-          type="number"
-          step="1"
-          min="0"
-          required
-        />
-      </label>
-
-      <div>
-        <p>
-          <span><b>£</b></span
-          ><span
-            id="calculation-output-before-tax"
-            class="amounts disclaimer furlough-pay"
-          >
-            1800
-          </span>
-          <span id="calculation-output-before-tax-description">
-            per month
-          </span>
-        </p>
-        <p>
-          <span><b>£</b></span
-          ><span
-            id="calculation-output-after-tax"
-            class="amounts disclaimer furlough-pay"
-          >
-            1422
-          </span>
-          after tax (approximation)
-        </p>
+      <h1>Furlough Pay Calculator UK</h1>
+      <div class="breakdown-container">
+        <div class="breakdown-label-value-pair">
+          <div class="flex-container_space-between">
+            <p class="salary-text">Yearly salary</p>
+            <label class="salary-label">
+              <input
+                class="salary-input"
+                name="yearly-salary"
+                id="yearly-salary"
+                placeholder="24000"
+                type="number"
+                step="1"
+                min="0"
+                required
+              />
+            </label>
+          </div>
+        </div>
+        <div class="breakdown-label-value-pair" id="base-furlough-salary">
+          <div class="flex-container_space-between text-grey">
+            <p>
+              Base furlough salary
+            </p>
+            <p>
+              <span class="pound-small">£</span>
+              <span
+                id="calculation-output-before-tax"
+                class="amounts  money-small"
+              >
+                1600
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="flex-container_space-between text-grey">
+          <p>
+            Income tax
+          </p>
+          <p>
+            <span class="pound-small">£</span>
+            <span
+              id="calculation-output-income-tax"
+              class="amounts  money-small"
+            >
+              112
+            </span>
+          </p>
+        </div>
+        <div class="flex-container_space-between">
+          <!-- ew! -->
+          <p style="margin-top:24px">
+            Net furlough salary (per month)
+          </p>
+          <p>
+            <span
+              id="calculation-output-net-furlough-salary-currency"
+              class="pound-big text-grey"
+              >£</span
+            >
+            <span
+              id="calculation-output-net-furlough-salary"
+              class="amounts  money-big text-grey"
+            >
+              1488
+            </span>
+          </p>
+        </div>
       </div>
+      <!-- </div> -->
 
       <section class="information-box">
         <svg
@@ -88,15 +119,15 @@
             Your take-home income will be different
           </h4>
           <p>
-            You'll still have to pay Income tax, National Insurance
-            contributions, Student loan repayments and any other deductions
-            (such as pension contributions) from your wage
+            You'll still pay National Insurance contributions, Student loan
+            repayments and any other deductions (such as pension contributions)
+            from your wage
           </p>
         </div>
       </section>
 
-      <p class="disclaimer">
-        This calculation is based on current
+      <p class="text-grey">
+        This calculation is an estimate based on current
         <a
           href="https://www.gov.uk/guidance/check-if-you-could-be-covered-by-the-coronavirus-job-retention-scheme#how-much-youll-get"
           target="_blank"
@@ -109,7 +140,7 @@
       <hr />
 
       <div>
-        <h4 class="more-help-title">Need more help?</h4>
+        <h4 class="more-help-title">Something wrong?</h4>
         <p class="feedback-text">
           If you have any feedback, you can
           <a

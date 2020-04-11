@@ -1,6 +1,6 @@
-const maxMonthlySalary = 2500;
+const maxMonthlypay = 2500;
 
-const input = document.getElementById("yearly-salary");
+const input = document.getElementById("yearly-pay");
 
 const baseCalculationOutputElement = document.getElementById(
   "calculation-output-before-tax"
@@ -15,11 +15,11 @@ const nationalInsuranceCalculationOutputElement = document.getElementById(
   "calculation-output-national-insurance"
 );
 
-const netFurloughSalaryOutputElement = document.getElementById(
-  "calculation-output-net-furlough-salary"
+const netFurloughpayOutputElement = document.getElementById(
+  "calculation-output-net-furlough-pay"
 );
-const netFurloughSalaryOutputCurrencyElement = document.getElementById(
-  "calculation-output-net-furlough-salary-currency"
+const netFurloughpayOutputCurrencyElement = document.getElementById(
+  "calculation-output-net-furlough-pay-currency"
 );
 
 input.addEventListener("change", updateBeforeTaxValue);
@@ -31,8 +31,8 @@ input.addEventListener("blur", updateIncomeTaxDeduction);
 input.addEventListener("change", updateNationalInsuranceDeduction);
 input.addEventListener("blur", updateNationalInsuranceDeduction);
 
-input.addEventListener("change", updateNetFurloughSalary);
-input.addEventListener("blur", updateNetFurloughSalary);
+input.addEventListener("change", updateNetFurloughpay);
+input.addEventListener("blur", updateNetFurloughpay);
 
 input.addEventListener("keydown", registerTouched);
 
@@ -49,7 +49,7 @@ function updateBeforeTaxValue(e) {
   //
   // Let user know if they've hit the limit
   // let descriptionTextContent = "";
-  // if (output >= maxMonthlySalary) {
+  // if (output >= maxMonthlypay) {
   //   descriptionTextContent = `${descriptionTextContent} (max amount)`;
   // }
   // baseCalculationDescriptionElement.textContent = descriptionTextContent;
@@ -77,24 +77,24 @@ function updateNationalInsuranceDeduction(e) {
   nationalInsuranceCalculationOutputElement.textContent = afterNI.toFixed();
 }
 
-function updateNetFurloughSalary(e) {
+function updateNetFurloughpay(e) {
   const grossMonthly = calculateFurloughPay(e.target.value);
   const afterTax = caclulateMonthlyTaxDeduction(grossMonthly);
   const afterNI = caclulateNationalInsuranceDeduction(grossMonthly);
 
-  const netFurloughSalary = grossMonthly - afterTax - afterNI;
+  const netFurloughpay = grossMonthly - afterTax - afterNI;
 
-  netFurloughSalaryOutputElement.classList.remove("text-grey");
-  netFurloughSalaryOutputCurrencyElement.classList.remove("text-grey");
-  netFurloughSalaryOutputElement.textContent = netFurloughSalary.toFixed();
+  netFurloughpayOutputElement.classList.remove("text-grey");
+  netFurloughpayOutputCurrencyElement.classList.remove("text-grey");
+  netFurloughpayOutputElement.textContent = netFurloughpay.toFixed();
 }
 
-function calculateFurloughPay(salary) {
-  const monthlySalary = salary / 12;
-  const percentageSalary = monthlySalary * 0.8;
-  const hasHitMonthlyMax = percentageSalary >= maxMonthlySalary;
+function calculateFurloughPay(pay) {
+  const monthlypay = pay / 12;
+  const percentagepay = monthlypay * 0.8;
+  const hasHitMonthlyMax = percentagepay >= maxMonthlypay;
 
-  return hasHitMonthlyMax ? maxMonthlySalary : percentageSalary;
+  return hasHitMonthlyMax ? maxMonthlypay : percentagepay;
 }
 
 // Basic rate: £12,501 to £50,000; 20%

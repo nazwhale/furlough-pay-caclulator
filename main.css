@@ -79,6 +79,7 @@ h1 {
   font-size: 20px;
   letter-spacing: 0.08rem;
   text-align: right;
+  max-width: 35vw;
 }
 
 .salary-input:focus {
@@ -97,8 +98,8 @@ h1 {
   content: "£";
   font-weight: bold;
   position: absolute;
-  left: 10px;
-  top: 8px;
+  left: 12px;
+  top: 11px;
 }
 
 .salary-text {

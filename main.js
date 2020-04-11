@@ -71,7 +71,6 @@ function updateIncomeTaxDeduction(e) {
 function updateNationalInsuranceDeduction(e) {
   const grossMonthly = calculateFurloughPay(e.target.value);
   const afterNI = caclulateNationalInsuranceDeduction(grossMonthly);
-  console.log(afterNI);
 
   nationalInsuranceCalculationOutputElement.classList.remove("disclaimer");
   nationalInsuranceCalculationOutputElement.classList.add("bold");
@@ -130,7 +129,6 @@ function caclulateNationalInsuranceDeduction(grossMonthly) {
   }
 
   const deductable = grossMonthly - personalNIMonthlyAllowance;
-
   const deductions = (deductable / 100) * 12;
 
   return deductions;

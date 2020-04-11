@@ -2,15 +2,19 @@ const maxMonthlySalary = 2500;
 
 const input = document.getElementById("yearly-salary");
 
-const beforeTaxCalculationOutputElement = document.getElementById(
+const baseCalculationOutputElement = document.getElementById(
   "calculation-output-before-tax"
 );
-const beforeTaxCalculationDescriptionElement = document.getElementById(
+const baseCalculationDescriptionElement = document.getElementById(
   "calculation-output-before-tax-description"
 );
-const afterTaxCalculationOutputElement = document.getElementById(
+const incomeTaxCalculationOutputElement = document.getElementById(
   "calculation-output-income-tax"
 );
+const nationalInsuranceCalculationOutputElement = document.getElementById(
+  "calculation-output-national-insurance"
+);
+
 const netFurloughSalaryOutputElement = document.getElementById(
   "calculation-output-net-furlough-salary"
 );
@@ -23,6 +27,9 @@ input.addEventListener("blur", updateBeforeTaxValue);
 
 input.addEventListener("change", updateIncomeTaxDeduction);
 input.addEventListener("blur", updateIncomeTaxDeduction);
+
+input.addEventListener("change", updateNationalInsuranceDeduction);
+input.addEventListener("blur", updateNationalInsuranceDeduction);
 
 input.addEventListener("change", updateNetFurloughSalary);
 input.addEventListener("blur", updateNetFurloughSalary);
@@ -45,27 +52,38 @@ function updateBeforeTaxValue(e) {
   // if (output >= maxMonthlySalary) {
   //   descriptionTextContent = `${descriptionTextContent} (max amount)`;
   // }
-  // beforeTaxCalculationDescriptionElement.textContent = descriptionTextContent;
+  // baseCalculationDescriptionElement.textContent = descriptionTextContent;
 
-  beforeTaxCalculationOutputElement.classList.remove("disclaimer");
-  beforeTaxCalculationOutputElement.classList.add("bold");
-  beforeTaxCalculationOutputElement.textContent = output;
+  baseCalculationOutputElement.classList.remove("disclaimer");
+  baseCalculationOutputElement.classList.add("bold");
+  baseCalculationOutputElement.textContent = output;
 }
 
 function updateIncomeTaxDeduction(e) {
   const grossMonthly = calculateFurloughPay(e.target.value);
   const afterTax = caclulateMonthlyTaxDeduction(grossMonthly);
 
-  afterTaxCalculationOutputElement.classList.remove("disclaimer");
-  afterTaxCalculationOutputElement.classList.add("bold");
-  afterTaxCalculationOutputElement.textContent = afterTax.toFixed();
+  incomeTaxCalculationOutputElement.classList.remove("disclaimer");
+  incomeTaxCalculationOutputElement.classList.add("bold");
+  incomeTaxCalculationOutputElement.textContent = afterTax.toFixed();
+}
+
+function updateNationalInsuranceDeduction(e) {
+  const grossMonthly = calculateFurloughPay(e.target.value);
+  const afterNI = caclulateNationalInsuranceDeduction(grossMonthly);
+  console.log(afterNI);
+
+  nationalInsuranceCalculationOutputElement.classList.remove("disclaimer");
+  nationalInsuranceCalculationOutputElement.classList.add("bold");
+  nationalInsuranceCalculationOutputElement.textContent = afterNI.toFixed();
 }
 
 function updateNetFurloughSalary(e) {
   const grossMonthly = calculateFurloughPay(e.target.value);
   const afterTax = caclulateMonthlyTaxDeduction(grossMonthly);
+  const afterNI = caclulateNationalInsuranceDeduction(grossMonthly);
 
-  const netFurloughSalary = grossMonthly - afterTax;
+  const netFurloughSalary = grossMonthly - afterTax - afterNI;
 
   netFurloughSalaryOutputElement.classList.remove("text-grey");
   netFurloughSalaryOutputCurrencyElement.classList.remove("text-grey");
@@ -80,6 +98,10 @@ function calculateFurloughPay(salary) {
   return hasHitMonthlyMax ? maxMonthlySalary : percentageSalary;
 }
 
+// Basic rate: £12,501 to £50,000; 20%
+//
+// We consider everything as the basic rate, as noone will be earning more
+// than £2500 per month (~£37500 per year)
 const personalTaxAllowance = 12500;
 function caclulateMonthlyTaxDeduction(grossMonthly) {
   const monthlyPersonalTaxAllowance = personalTaxAllowance / 12;
@@ -90,10 +112,26 @@ function caclulateMonthlyTaxDeduction(grossMonthly) {
 
   const taxable = grossMonthly - monthlyPersonalTaxAllowance;
 
-  // Basic rate: £12,501 to £50,000; 20%
-  //
-  // We consider everything as the basic rate, as noone will be earning more
-  // than £2500 per month (~£37500 per year)
   const tax = taxable * 0.2;
   return tax;
+}
+
+// up to £792 a month: 0%
+// £792 to £4167 a month: 12%
+//
+// (we can ignore the band above £4167, as furlough salaries max at £2500)
+//
+// if making changes, you can check against this calculator for correctness:
+// http://nicecalculator.hmrc.gov.uk/Class1NICs1.aspx
+personalNIMonthlyAllowance = 792;
+function caclulateNationalInsuranceDeduction(grossMonthly) {
+  if (grossMonthly <= personalNIMonthlyAllowance) {
+    return 0;
+  }
+
+  const deductable = grossMonthly - personalNIMonthlyAllowance;
+
+  const deductions = (deductable / 100) * 12;
+
+  return deductions;
 }

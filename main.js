@@ -1,6 +1,7 @@
 const maxMonthlySalary = 2500;
 
 const input = document.getElementById("yearly-salary");
+
 const beforeTaxCalculationOutputElement = document.getElementById(
   "calculation-output-before-tax"
 );
@@ -8,14 +9,23 @@ const beforeTaxCalculationDescriptionElement = document.getElementById(
   "calculation-output-before-tax-description"
 );
 const afterTaxCalculationOutputElement = document.getElementById(
-  "calculation-output-after-tax"
+  "calculation-output-income-tax"
+);
+const netFurloughSalaryOutputElement = document.getElementById(
+  "calculation-output-net-furlough-salary"
+);
+const netFurloughSalaryOutputCurrencyElement = document.getElementById(
+  "calculation-output-net-furlough-salary-currency"
 );
 
 input.addEventListener("change", updateBeforeTaxValue);
 input.addEventListener("blur", updateBeforeTaxValue);
 
-input.addEventListener("change", updateAfterTaxValue);
-input.addEventListener("blur", updateAfterTaxValue);
+input.addEventListener("change", updateIncomeTaxDeduction);
+input.addEventListener("blur", updateIncomeTaxDeduction);
+
+input.addEventListener("change", updateNetFurloughSalary);
+input.addEventListener("blur", updateNetFurloughSalary);
 
 input.addEventListener("keydown", registerTouched);
 
@@ -28,25 +38,38 @@ function updateBeforeTaxValue(e) {
 
   let output = calculated;
 
+  // TODO: figure out the css for this
+  //
   // Let user know if they've hit the limit
-  let descriptionTextContent = "per month";
-  if (output >= maxMonthlySalary) {
-    descriptionTextContent = `${descriptionTextContent} (max amount)`;
-  }
-  beforeTaxCalculationDescriptionElement.textContent = descriptionTextContent;
+  // let descriptionTextContent = "";
+  // if (output >= maxMonthlySalary) {
+  //   descriptionTextContent = `${descriptionTextContent} (max amount)`;
+  // }
+  // beforeTaxCalculationDescriptionElement.textContent = descriptionTextContent;
 
   beforeTaxCalculationOutputElement.classList.remove("disclaimer");
   beforeTaxCalculationOutputElement.classList.add("bold");
   beforeTaxCalculationOutputElement.textContent = output;
 }
 
-function updateAfterTaxValue(e) {
+function updateIncomeTaxDeduction(e) {
   const grossMonthly = calculateFurloughPay(e.target.value);
-  const afterTax = subtractTax(grossMonthly);
+  const afterTax = caclulateMonthlyTaxDeduction(grossMonthly);
 
   afterTaxCalculationOutputElement.classList.remove("disclaimer");
   afterTaxCalculationOutputElement.classList.add("bold");
   afterTaxCalculationOutputElement.textContent = afterTax.toFixed();
+}
+
+function updateNetFurloughSalary(e) {
+  const grossMonthly = calculateFurloughPay(e.target.value);
+  const afterTax = caclulateMonthlyTaxDeduction(grossMonthly);
+
+  const netFurloughSalary = grossMonthly - afterTax;
+
+  netFurloughSalaryOutputElement.classList.remove("text-grey");
+  netFurloughSalaryOutputCurrencyElement.classList.remove("text-grey");
+  netFurloughSalaryOutputElement.textContent = netFurloughSalary.toFixed();
 }
 
 function calculateFurloughPay(salary) {
@@ -58,11 +81,11 @@ function calculateFurloughPay(salary) {
 }
 
 const personalTaxAllowance = 12500;
-function subtractTax(grossMonthly) {
+function caclulateMonthlyTaxDeduction(grossMonthly) {
   const monthlyPersonalTaxAllowance = personalTaxAllowance / 12;
 
   if (grossMonthly <= monthlyPersonalTaxAllowance) {
-    return grossMonthly;
+    return 0;
   }
 
   const taxable = grossMonthly - monthlyPersonalTaxAllowance;
@@ -72,7 +95,5 @@ function subtractTax(grossMonthly) {
   // We consider everything as the basic rate, as noone will be earning more
   // than £2500 per month (~£37500 per year)
   const tax = taxable * 0.2;
-
-  const taxSubtracted = grossMonthly - tax;
-  return taxSubtracted;
+  return tax;
 }

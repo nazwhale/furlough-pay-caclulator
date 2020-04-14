@@ -34,6 +34,13 @@ input[type="number"] {
   }
 }
 
+/* Add padding to bottom for devices with curved screens */
+@media (max-width: 800px) {
+  body {
+    padding: 0 0 2rem 0;
+  }
+}
+
 .bold {
   font-weight: bold;
 }

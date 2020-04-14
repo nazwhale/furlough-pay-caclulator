@@ -54,6 +54,7 @@ function updateBeforeTaxValue(e) {
   // }
   // baseCalculationDescriptionElement.textContent = descriptionTextContent;
 
+  baseCalculationOutputElement.classList.remove("text-lightgrey");
   baseCalculationOutputElement.classList.remove("disclaimer");
   baseCalculationOutputElement.classList.add("bold");
   baseCalculationOutputElement.textContent = output;
@@ -63,6 +64,7 @@ function updateIncomeTaxDeduction(e) {
   const grossMonthly = calculateFurloughPay(e.target.value);
   const afterTax = caclulateMonthlyTaxDeduction(grossMonthly);
 
+  incomeTaxCalculationOutputElement.classList.remove("text-lightgrey");
   incomeTaxCalculationOutputElement.classList.remove("disclaimer");
   incomeTaxCalculationOutputElement.classList.add("bold");
   incomeTaxCalculationOutputElement.textContent = afterTax.toFixed();
@@ -72,6 +74,7 @@ function updateNationalInsuranceDeduction(e) {
   const grossMonthly = calculateFurloughPay(e.target.value);
   const afterNI = caclulateNationalInsuranceDeduction(grossMonthly);
 
+  nationalInsuranceCalculationOutputElement.classList.remove("text-lightgrey");
   nationalInsuranceCalculationOutputElement.classList.remove("disclaimer");
   nationalInsuranceCalculationOutputElement.classList.add("bold");
   nationalInsuranceCalculationOutputElement.textContent = afterNI.toFixed();
@@ -84,8 +87,7 @@ function updateNetFurloughpay(e) {
 
   const netFurloughpay = grossMonthly - afterTax - afterNI;
 
-  netFurloughpayOutputElement.classList.remove("text-grey");
-  netFurloughpayOutputCurrencyElement.classList.remove("text-grey");
+  netFurloughpayOutputElement.classList.remove("text-lightgrey");
   netFurloughpayOutputElement.textContent = netFurloughpay.toFixed();
 }
 

@@ -6,7 +6,7 @@ const baseCalculationOutputElement = document.getElementById(
   "calculation-output-before-tax"
 );
 const baseCalculationDescriptionElement = document.getElementById(
-  "calculation-output-before-tax-description"
+  "calculation-output-base-description"
 );
 const incomeTaxCalculationOutputElement = document.getElementById(
   "calculation-output-income-tax"
@@ -45,14 +45,14 @@ function updateBeforeTaxValue(e) {
 
   let output = calculated;
 
-  // TODO: figure out the css for this
-  //
   // Let user know if they've hit the limit
-  // let descriptionTextContent = "";
-  // if (output >= maxMonthlypay) {
-  //   descriptionTextContent = `${descriptionTextContent} (max amount)`;
-  // }
-  // baseCalculationDescriptionElement.textContent = descriptionTextContent;
+  let descriptionTextContent = "";
+  baseCalculationDescriptionElement.classList.add("padding-bottom-hack");
+  if (output >= maxMonthlypay) {
+    descriptionTextContent = `${descriptionTextContent} (max amount)`;
+    baseCalculationDescriptionElement.classList.remove("padding-bottom-hack");
+  }
+  baseCalculationDescriptionElement.textContent = descriptionTextContent;
 
   baseCalculationOutputElement.classList.remove("text-lightgrey");
   baseCalculationOutputElement.classList.remove("disclaimer");

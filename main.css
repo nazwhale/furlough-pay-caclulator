@@ -219,6 +219,7 @@ hr {
   text-align: right;
   margin: 0;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .calculation-output {

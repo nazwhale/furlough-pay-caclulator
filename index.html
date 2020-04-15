@@ -37,45 +37,54 @@
         Find out how much monthly pay you're entitled to under the Coronavirus
         Job Retention scheme
       </p>
+
       <div class="breakdown-container">
-        <div class="breakdown-label-value-pair">
-          <div class="flex-container_space-between">
-            <p class="pay-text">Yearly pay</p>
-            <label class="pay-label">
-              <input
-                class="pay-input"
-                name="yearly-pay"
-                id="yearly-pay"
-                placeholder="24000"
-                type="number"
-                step="1"
-                min="0"
-                required
-              />
-            </label>
-          </div>
+        <!-- 1 -->
+        <div class="breakdown-row">
+          <p class="pay-text">Yearly pay</p>
+          <label class="pay-label">
+            <input
+              class="pay-input"
+              name="yearly-pay"
+              id="yearly-pay"
+              placeholder="24000"
+              type="number"
+              step="1"
+              min="0"
+              required
+            />
+          </label>
         </div>
-        <div class="breakdown-label-value-pair" id="base-furlough-pay">
-          <div class="flex-container_space-between text-grey">
-            <p>
-              Base furlough pay
-            </p>
-            <p>
-              <span class="pound-small">£</span>
-              <span
-                id="calculation-output-before-tax"
-                class="amounts  money-small text-lightgrey"
-              >
-                1600
-              </span>
-            </p>
-          </div>
+
+        <!-- 2 -->
+        <div
+          class="breakdown-row text-grey grid-first-column"
+          id="base-furlough-pay"
+        >
+          <p class="breakdown-row-element">
+            Base furlough pay
+          </p>
+          <p class="breakdown-row-element">
+            <span class="pound-small">£</span>
+            <span
+              id="calculation-output-before-tax"
+              class="amounts  money-small text-lightgrey"
+            >
+              1600
+            </span>
+          </p>
         </div>
-        <div class="flex-container_space-between text-grey">
-          <p>
+        <p
+          class="key-value_info text-grey breakdown-row-element padding-bottom-hack"
+          id="calculation-output-base-description"
+        ></p>
+
+        <!-- 3 -->
+        <div class="breakdown-row text-grey grid-first-column">
+          <p class="breakdown-row-element">
             Income tax
           </p>
-          <p>
+          <p class="breakdown-row-element">
             <span class="pound-small">£</span>
             <span
               id="calculation-output-income-tax"
@@ -85,11 +94,13 @@
             </span>
           </p>
         </div>
-        <div class="flex-container_space-between text-grey">
-          <p>
+
+        <!-- 4 -->
+        <div class="breakdown-row text-grey grid-first-column">
+          <p class="breakdown-row-element">
             National insurance
           </p>
-          <p>
+          <p class="breakdown-row-element">
             <span class="pound-small">£</span>
             <span
               id="calculation-output-national-insurance"
@@ -99,12 +110,13 @@
             </span>
           </p>
         </div>
-        <div class="flex-container_space-between">
-          <!-- ew! -->
-          <p style="margin-top:24px">
+
+        <!-- 5 -->
+        <div class="breakdown-row grid-first-column calculation-output">
+          <div>
             Net furlough pay
-          </p>
-          <p>
+          </div>
+          <div>
             <span
               id="calculation-output-net-furlough-pay-currency"
               class="pound-big"
@@ -116,7 +128,10 @@
             >
               1488
             </span>
-          </p>
+          </div>
+        </div>
+        <div class="key-value_info breakdown-row-element">
+          per month
         </div>
       </div>
 
